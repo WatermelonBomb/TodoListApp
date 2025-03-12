@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>期限付きTodoリスト + ゴミ箱アイコンドラッグ</title>
+  <!-- BulmaのCSSを読み込み -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+  />
+  <!-- カスタムCSS -->
+  <link rel="stylesheet" href="TodoApp.css" />
+</head>
+<body>
+  <!-- ヘッダー -->
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <p class="title">タスク管理アプリ</p>
+      <p class="subtitle">期限の早い順に並び、ゴミ箱アイコンをドラッグできるTodoリスト</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <section class="section">
+    <div class="container">
+      <!-- 入力フォーム -->
+      <div class="columns is-multiline">
+        <!-- タスク名 -->
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
+          <div class="field">
+            <label class="label" for="taskNameInput">タスク名</label>
+            <div class="control">
+              <input
+                id="taskNameInput"
+                class="input is-medium"
+                type="text"
+                placeholder="タスクを入力"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- 期限日 -->
+        <div class="column is-12-mobile is-6-tablet is-4-desktop">
+          <div class="field">
+            <label class="label" for="dueDateInput">期限日</label>
+            <div class="control">
+              <input
+                id="dueDateInput"
+                class="input is-medium"
+                type="date"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- タスク追加ボタン -->
+        <div class="column is-12-mobile is-12-tablet is-4-desktop">
+          <div class="field">
+            <label class="label">&nbsp;</label> <!-- 見た目の調整用 -->
+            <div class="control">
+              <button
+                id="addTaskButton"
+                class="button is-primary is-medium is-fullwidth"
+              >
+                タスクを追加
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 一括削除ボタン（チェック付きタスク） -->
+      <div class="columns">
+        <div class="column is-12">
+          <button
+            id="removeCheckedTasksButton"
+            class="button is-danger is-medium is-fullwidth mt-2"
+          >
+            チェックしたタスクを一括削除
+          </button>
+        </div>
+      </div>
+
+      <!-- タスクリストをboxで囲む -->
+      <div class="box mt-4">
+        <ul id="taskList"></ul>
+      </div>
+
+      <!-- ドラッグ＆ドロップで削除するゴミ箱エリア -->
+      <div
+        id="trashCan"
+        class="box has-text-centered"
+      >
+        <p class="is-size-5">ここにドラッグ＆ドロップでタスクを削除</p>
+        <p>(ゴミ箱アイコンをここに落とすと削除されます)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer has-background-light">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Task Manager</strong> with <a href="https://bulma.io/">Bulma</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="Todo.app.js"></script>
+</body>
+</html>
