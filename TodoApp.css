@@ -1,0 +1,62 @@
+/* 追加のカスタムスタイルや余白調整 */
+.mt-2 {
+  margin-top: 1rem !important; /* Bulmaクラスに追加で1remほどトップマージン */
+}
+
+/* タスクリスト: 各タスクの区切り線や見栄えの調整 */
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+  cursor: grab; /* ドラッグ可能に見えるようにカーソル変更 */
+}
+#taskList li:active {
+  cursor: grabbing;
+}
+
+/* 最後のタスクの区切り線を消す */
+#taskList li:last-child {
+  border-bottom: none;
+}
+
+/* チェックボックスとテキストや期限日などの間に余白を付ける */
+.task-checkbox {
+  margin-right: 0.75rem;
+}
+
+.task-text {
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.task-date {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ゴミ箱エリア */
+#trashCan {
+  border: 2px dashed #ff3860; /* Bulmaの危険色を意識した赤っぽい色 */
+  margin-top: 2rem;
+  padding: 2rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+#trashCan.drag-over {
+  background-color: #ffeedf;
+  border-color: #ff3860;
+}
+
+/* ----- ゴミ箱アイコン(ドラッグ中のアニメーション用) ----- */
+#dustboxIcon {
+  position: fixed;       /* 画面上を自由に動かす */
+  top: 0;
+  left: 0;
+  pointer-events: none;  /* マウスイベントを透過 */
+  width: 64px;           /* アイコンが大きい場合はここで縮小 */
+  height: 64px;
+  z-index: 9999;         /* 最前面に表示 */
+  display: none;         /* 初期は非表示 */
+  transform-origin: center center; /* スケールの原点を中央に */
+}
